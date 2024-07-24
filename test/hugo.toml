@@ -1,0 +1,5 @@
+baseURL = 'https://test.adrbqt.ch/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'mytheme'
+
