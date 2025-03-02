@@ -1,20 +1,24 @@
 baseURL = "/"
 languageCode = "en-us"
+name = "Adrien Bouquet"
+title = "Adrien's Dashbook"
 theme = "poison"
 paginate = 10
 pluralizelisttitles = false   # removes the automatically appended "s" on sidebar entries
+customCSS = ["/custom.css"]
 
 # NOTE: If using Disqus as commenting engine, uncomment and configure this line
 # disqusShortname = "yourDisqusShortname"
 
 [params]
-    brand = "Adrien's blog"                      # name of your site - appears in the sidebar
+    brand = "Adrien's Dashbook"                      # name of your site - appears in the sidebar
     brand_image = "/images/adrienacco2.jpg"    # path to the image shown in the sidebar
     description = "My personnal blog where I share interesting stuff" # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
     favicon =  'https://github.com/abouquet27.png'       
-    front_page_content = ["about", "posts", "projects"]
-      # path to favicon (defaults to favicon.png)
+    front_page_content = ["about", "posts"]
+
+    # path to favicon (defaults to favicon.png)
 
     # MENU PLACEHOLDER
     # Menu dict keys:
@@ -24,8 +28,8 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
         # Limit:        If the files should be listed, how many should be shown.
     menu = [
         {Name = "About", URL = "/about/", HasChildren = false},
-        {Name = "Posts", URL = "/posts/", Pre = "Recent", HasChildren = true, Limit = 5},
-        {Name = "Publication", URL ="/publications", HasChildren = true, Limit = 5},
+        {Name = "Writings", URL ="/writings/", HasChildren = false},
+        {Name = "Posts", URL = "/posts/", HasChildren = true, Limit = 5},
     ]
 
     # Links to your socials.  Comment or delete any you don't need/use. 
@@ -46,7 +50,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     moon_sun_background_color = "#180E6D"   # default isrgb(24, 14, 109)
     moon_sun_color = "#FFF"                 # default is #FFF
     sidebar_a_color = "#FFF"                # default is #FFF
-    sidebar_bg_color = "#180E5D"            # default is #180E6D
+    sidebar_bg_color = "#1b1838"            # default is#1b1838
     sidebar_h1_color = "#FFF"               # default is #FFF
     sidebar_img_border_color = "#FFF"    # default is #515151
     sidebar_p_color = "#C0C0C0"             # default is #909090
@@ -54,9 +58,9 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
     # Hex colors for your content in light mode.
     code_color = "#000"                     # default is #000
-    code_background_color = "#E5E5E5"       # default is #E5E5E5
+    code_background_color = "#FAF9F6"       # default is #E5E5E5
     code_block_color = "#FFF"               # default is #FFF
-    code_block_background_color = "#272822" # default is #272822
+    code_block_background_color = "#1b1838" # default is #0b0432
     content_bg_color = "#FAF9F6"            # default is #FAF9F6
     date_color = "#515151"                  # default is #515151
     link_color = "#268BD2"                  # default is #268BD2
@@ -68,15 +72,15 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
     # Hex colors for your content in dark mode
     code_color_dark = "#FFF"                        # default is #FFF
-    code_background_color_dark = "#515151"          # default is #515151
+    code_background_color_dark = "#14102a"          # default is #515151
     code_block_color_dark = "#FFF"                  # default is #FFF
-    code_block_background_color_dark = "#272822"    # default is #272822
-    content_bg_color_dark = "#0C0240"               # default isrgb(12, 2, 60)
-    date_color_dark = "#9A9A9A"                     # default is #9A9A9A
-    link_color_dark = "#268BD2"                     # default is #268BD2
+    code_block_background_color_dark = " #14102a"    # default is #040114
+    content_bg_color_dark = "#14102a"               # default is #0a0233
+    date_color_dark = "#AAAAAA"                     # default is #9A9A9A
+    link_color_dark = "#05fe68"                     # default is #05fe68
     list_color_dark = "#9D9D9D"                     # default is #9D9D9D
     post_title_color_dark = "#DBE2E9"               # default is #DBE2E9
-    table_border_color_dark = "#515151"             # default is #515151
+    table_border_color_dark = "#C0C0C0"             # default isrgb(3, 2, 2)
     table_stripe_color_dark = "#202020"             # default is #202020
     text_color_dark = "#EEE"                        # default is #EEE
 

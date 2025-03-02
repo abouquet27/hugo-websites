@@ -2,10 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://adrbqt.ch/</loc>
+    <loc>/</loc>
+    <lastmod>2025-02-23T11:50:27+01:00</lastmod>
   </url><url>
-    <loc>http://adrbqt.ch/series/</loc>
+    <loc>/posts/new-website/</loc>
+    <lastmod>2025-02-23T11:50:27+01:00</lastmod>
   </url><url>
-    <loc>http://adrbqt.ch/tags/</loc>
+    <loc>/posts/</loc>
+    <lastmod>2025-02-23T11:50:27+01:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
+    <lastmod>2025-02-22T16:03:14+01:00</lastmod>
+  </url><url>
+    <loc>/about/about/</loc>
+    <lastmod>2025-02-22T16:03:14+01:00</lastmod>
+  </url><url>
+    <loc>/writings/type-confusions/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sanitizers/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/type-safety/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/writings/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/c/c&#43;&#43;/</loc>
+  </url><url>
+    <loc>/series/</loc>
   </url>
 </urlset>
