@@ -18,8 +18,8 @@ under the teaching of my professors Christel Sautaux and Aline Roy, until obtain
 I also play an active part in multiple accordion orchestras, such as **l'Hirondelle de Prilly** or **das Jugend Akkordeon Orchester Schweiz (JAO)**, and projects, such as masterclasses with professionals or Summer camps for musicians. 
 Moreover, I also liked to take part and staff in events at EPFL and socialize with my peers and professors. My hobbies are cooking, reading, photography, hiking and travelling!
 
-{{< figure src="tinguely_basel.jpg" caption="Promenade around the Tinguely Museum - &copy; S. Racine" alt="image.jpeg" width="400">}}
+{{< figure src="/images/tinguely_basel.jpg" caption="Promenade around the Tinguely Museum - &copy; S. Racine" alt="image.jpeg" width="400">}}
 
-{{< figure src="accordeon.jpeg" caption="Focused - &copy; Q. Braguglia" width="400">}}
+{{< figure src="/images/accordeon.jpeg" caption="Focused - &copy; Q. Braguglia" width="400">}}
 
-{{< figure src="finnish_night.jpeg" caption="Darkness of the Finnish night -  &copy; A. Bouquet" width="400">}}
+{{< figure src="/images/finnish_night.jpeg" caption="Darkness of the Finnish night -  &copy; A. Bouquet" width="400">}}
