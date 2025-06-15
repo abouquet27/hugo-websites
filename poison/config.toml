@@ -47,10 +47,10 @@ customCSS = ["/custom.css"]
     rss_section = "posts"
 
     # Hex colors for your sidebar.
-    moon_sun_background_color = "#180E6D"   # default isrgb(24, 14, 109)
+    moon_sun_background_color = "#1b1838"   # default isrgb(24, 14, 109)
     moon_sun_color = "#FFF"                 # default is #FFF
     sidebar_a_color = "#FFF"                # default is #FFF
-    sidebar_bg_color = "#1b1838"            # default is#1b1838
+    sidebar_bg_color = "#1b1838"            # default is  #1b1838
     sidebar_h1_color = "#FFF"               # default is #FFF
     sidebar_img_border_color = "#FFF"    # default is #515151
     sidebar_p_color = "#C0C0C0"             # default is #909090
