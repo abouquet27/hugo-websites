@@ -8,6 +8,34 @@ draft: false
 toc: true
 math: true
 ---
+<style>
+       /* CSS for citations */
+    div.csl-bib-body {}
+
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+
+    .hanging-indent div.csl-entry {
+      margin-left: 2em;
+      text-indent: -2em;
+    }
+
+    div.csl-left-margin {
+      min-width: 2em;
+      float: left;
+    }
+
+    div.csl-right-inline {
+      margin-left: 2em;
+      padding-left: 1em;
+    }
+
+    div.csl-indent {
+      margin-left: 2em;
+    }
+</style>
 
 *This paper was written under the supervision of Nicolas Badoux and Prof. Doc. sc. ETH Mathias Payer from HexHive Lab at EPFL and is available in PDF format on [this repository](https://github.com/abouquet27/typepp_report/blob/master/semester_project_report.pdf)*.
 
@@ -18,7 +46,7 @@ math: true
 C++ has a lot of vulnerabilities due to type confusion, which can lead to memory corruption 
 and security vulnerabilities. Casting a pointer from a type to another is a highly 
 common operation but, if misused, can lead to type confusion and thus can be exploited. 
-Hextype[^2] and Type++[^1] are two mechanisms that aim to detect type confusion at runtime.
+Hextype <span class="citation" data-cites="hextype"><a href="#ref-hextype" role="doc-biblioref">[1]</a></span> and Type++ <span class="citation" data-cites="typepp"><a href="#ref-typepp" role="doc-biblioref">[2]</a></span> are two mechanisms that aim to detect type confusion at runtime.
 Although they achieve a high success rate, they can not ensure a perfect type safety.
 We propose a benchmark that evaluates a range of type confusion cases by defining which 
 situations are likely to trigger type confusion. We evaluate it on Hextype and Type++ and
@@ -28,7 +56,7 @@ In addition, we show that Type++ is more complete than Hextype as it detects mor
 ## Introduction
 
 According to *The Importance of Being Earnest* (TIOBE) index, 
-C++ is the 3rd most used programming language in the world[^9], 
+C++ is the 3rd most used programming language in the world <span class="citation" data-cites="tiobe"><a href="#ref-tiobe" role="doc-biblioref">[3]</a></span>, 
 exceeding even Java. Both languages have in common object-oriented programming,
 a paradigm that allows to organize code in objects that contain
 both data and functions. In C++, objects are organized in hierarchies, 
@@ -38,11 +66,11 @@ type confusion vulnerabilities. A type confusion is a vulnerability that occurs
 when a pointer is cast from a type to another type which is not compatible. 
 Hence, the compiler misinterprets the pointer. This mistyped pointer can be then 
 exploited by an adversary to execute arbitrary code, heap corruption and hijack the control-flow.
-For instance, in 2021, a type confusion vulnerability was discovered in Telegram[^6] 
+For instance, in 2021, a type confusion vulnerability was discovered in Telegram <span class="citation" data-cites="telegram_cve"><a href="#ref-telegram_cve" role="doc-biblioref">[4]</a></span> 
 and could allow an adversary to access the heap memory.
 
 
-To prevent these vulnerabilities, sanitizers such as Hextype[^2] and type++[^1] have been developed.
+To prevent these vulnerabilities, sanitizers such as Hextype <span class="citation" data-cites="typepp"><a href="#ref-typepp" role="doc-biblioref">[1]</a></span> and type++ <span class="citation" data-cites="typepp"><a href="#ref-typepp" role="doc-biblioref">[2]</a></span> have been developed.
 These tools aim to detect type confusions at runtime. Even if they achieve a high success rate, 
 they can not ensure a perfect type safety, and we want to measure their completeness.
 
@@ -62,7 +90,7 @@ occurs when the compiler misinterprets a pointer type generally after a wrong ty
 This can lead to memory corruption and security vulnerabilities. An adversary can then exploit this
 vulnerability to execute arbitrary code, heap corruption and hijack the control-flow. Such an attack
 occurred in the past in V8 in Google Chrome, where it allowed a remote attacker to potentially exploit
-heap corruption via a crafted HTML page (CVE-2023-3079) [^8]. Hence, it is crucial to detect wrong
+heap corruption via a crafted HTML page (CVE-2023-3079) <span class="citation" data-cites="nist"><a href="#ref-nist" role="doc-biblioref">[5]</a></span>. Hence, it is crucial to detect wrong
 typecasting which induce type confusion. These wrong casts can occur when casting a pointer
 outside a type hierarchy (```char*```to```void*```then casting to another type, see line 40 in Listing 2.1) or
 inside a type hierarchy with classes and object-oriented programming e.g., casting a pointer from a
@@ -188,8 +216,8 @@ in this preferred order which passes on the underlying types confusions.
 ### Type confusions and Mechanisms
 
 As previously mentioned, type confusion vulnerabilities can lead to some memory corruption and
-security vulnerabilities which products such as Telegram, (CVE-2021-31318[^6], CVE-2021-31317[^5])
-or Google Chromium (CVE-2022-2295[^7]) are exposed to. Listing 2.1 shows an example of a type
+security vulnerabilities which products such as Telegram, (CVE-2021-31318  <span class="citation" data-cites="telegram_cve"><a href="#ref-telegram_cve" role="doc-biblioref">[4]</a></span>, CVE-2021-31317  <span class="citation" data-cites="telegram_cve_2"><a href="#ref-telegram_cve_2" role="doc-biblioref">[6]</a></span>)
+or Google Chromium (CVE-2022-2295  <span class="citation" data-cites="chromium"><a href="#ref-chromium" role="doc-biblioref">[7]</a></span>) are exposed to. Listing 2.1 shows an example of a type
 confusion. First, we define a base class ```Base``` and two derived classes ```Dummy``` and ```Password``` with
 their own attributes and methods. We set up the password to "MyHardPassword" (line 45) of our
 class. A type confusion inside a type hierarchy can occur when there is a cast from a base to a
@@ -215,8 +243,8 @@ as type table to keep track of each type of each object or trees for type hierar
 existing metadata Runtime Type Information (RTTI), such as vtables. Generally, the first approach is
 more complete because it covers more types, but it introduces overhead and performance issues.
 The second is faster but less complete due to its limitation to polymorphic classes, and it caused
-some crash issue. In this paper, we will focus and compare on two methods: Hextype [^2] and
-type++[^1]. Both checks types correctness at runtime, but they differ in their approach. Hextype is
+some crash issue. In this paper, we will focus and compare on two methods: Hextype <span class="citation" data-cites="hextype"><a href="#ref-hextype" role="doc-biblioref">[2]</a></span> and
+type++ <span class="citation" data-cites="typepp"><a href="#ref-typepp" role="doc-biblioref">[1]</a></span>. Both checks types correctness at runtime, but they differ in their approach. Hextype is
 older and relies on disjoint metadata to achieve types correctness. Type++ is a recent C++ dialect
 and relies on existing metadata to achieve types correctness but unlike an approach based solely
 on existing metadata for polymorphism object, it extends this by adding a vtable pointer to each
@@ -471,10 +499,10 @@ them with Hextype and type++ and evaluate the completeness of our test suite.
 
 ## Related Work
 Type confusions continue to be studied and Hextype and type++ are not the only mechanisms
-that aim to detect them. TypeSan [^3] is a type confusion detector also based on LLVM framework.
+that aim to detect them. TypeSan  <span class="citation" data-cites="typesan"><a href="#ref-typesan" role="doc-biblioref">[8]</a></span> is a type confusion detector also based on LLVM framework.
 Similarly to Hextype, TypeSan relies on disjoint metadata to keep track of each type of each object
 and to check types correctness at runtime. However, TypeSan uses shadow memory scheme.
-More recently, we can mention TCD [^4] a static type confusion detector. Unlike the 3 mentioned
+More recently, we can mention TCD  <span class="citation" data-cites="tcd"><a href="#ref-tcd" role="doc-biblioref">[9]</a></span> a static type confusion detector. Unlike the 3 mentioned
 above, it works by static analysis and is proven to handle complex feature as multiple inheritance or
 placement new.
 
@@ -494,21 +522,73 @@ that type++ does not handle multiple inheritance, and they will serve as a basis
 I would like to thank my supervisor, Nicolas Badoux, for his guidance and support throughout this
 project. Finally, I would like to thank my family and friends for their support
 
-## Bibliography
-[^1]: [type++: Prohibiting Type Confusion with Inline Type Information.](https://hexhive.epfl.ch/publications/files/25NDSS.pdf) 
+## References
 
-[^2]: [HexType: Efficient Detection of Type Confusion Errors for C++. 2024.](https://nebelwelt.net/files/17CCS.pdf)
-
-[^3]: [TypeSan: Practical Type Confusion Detection. 2016.](https://dl.acm.org/doi/abs/10.1145/2976749.2978405)
-
-[^4]: [TCD: Statically Detecting Type Confusion Errors in C++ Programs. 2019.](https://ieeexplore.ieee.org/abstract/document/8987463/figures#figures)
-
-[^5]: [National Institute of Standards and Technology. NIST CVE-2021-31317 Detail Page. 2021.](https://nvd.nist.gov/vuln/detail/CVE-2021-31317)
-
-[^6]: [National Institute of Standards and Technology. NIST CVE-2021-31318 Detail Page. 2021.](https://nvd.nist.gov/vuln/detail/CVE-2021-31318)
-
-[^7]: [National Institute of Standards and Technology. NIST CVE-2022-2295 Detail Page. 2021.](https://nvd.nist.gov/vuln/detail/CVE-2022-2295)
- 
-[^8]: [National Institute of Standards and Technology. NIST CVE-2023-3079 Detail Page. 2023.](https://nvd.nist.gov/vuln/detail/CVE-2023-3079)
-
-[^9]: [TIOBE index of june 2024. (visited on 06/07/2024)](https://www.tiobe.com/tiobe-index/)
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+    <div id="ref-hextype" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[1] </div>
+      <div class="csl-right-inline">Y.
+        Jeon, P. Biswas, S. Carr, B. Lee, and M. Payer, <em><span class="nocase">HexType: Efficient Detection of Type
+            Confusion Errors for
+            C++</span></em>. 2024. Available: <a
+          href="https://nebelwelt.net/files/17CCS.pdf">https://nebelwelt.net/files/17CCS.pdf</a></div>
+    </div>
+    <div id="ref-typepp" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[2] </div>
+      <div class="csl-right-inline">N.
+        Badoux, <span>“Type++: Prohibiting type confusion with inline type
+          information.”</span> </div>
+    </div>
+    <div id="ref-tiobe" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[3] </div>
+      <div class="csl-right-inline"><span>“<span class="nocase">TIOBE index of june
+            2024</span>.”</span> Accessed: Jun. 07, 2024. [Online]. Available: <a
+          href="https://www.tiobe.com/tiobe-index/">https://www.tiobe.com/tiobe-index/</a></div>
+    </div>
+    <div id="ref-telegram_cve" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[4] </div>
+      <div class="csl-right-inline">N.
+        I. of Standards and Technology, <span>“<span>NIST CVE-2021-31318 Detail
+            Page</span>.”</span> [Online]. Available: <a
+          href="https://nvd.nist.gov/vuln/detail/CVE-2021-31318">https://nvd.nist.gov/vuln/detail/CVE-2021-31318</a>
+      </div>
+    </div>
+    <div id="ref-nist" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[5] </div>
+      <div class="csl-right-inline">N.
+        I. of Standards and Technology, <span>“<span>NIST CVE-2023-3079 Detail
+            Page</span>.”</span> [Online]. Available: <a
+          href="https://nvd.nist.gov/vuln/detail/CVE-2023-3079">https://nvd.nist.gov/vuln/detail/CVE-2023-3079</a></div>
+    </div>
+    <div id="ref-telegram_cve_2" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[6] </div>
+      <div class="csl-right-inline">N.
+        I. of Standards and Technology, <span>“<span>NIST CVE-2021-31317 Detail
+            Page</span>.”</span> [Online]. Available: <a
+          href="https://nvd.nist.gov/vuln/detail/CVE-2021-31317">https://nvd.nist.gov/vuln/detail/CVE-2021-31317</a>
+      </div>
+    </div>
+    <div id="ref-chromium" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[7] </div>
+      <div class="csl-right-inline">N.
+        I. of Standards and Technology, <span>“<span>NIST CVE-2022-2295 Detail
+            Page</span>.”</span> [Online]. Available: <a
+          href="https://nvd.nist.gov/vuln/detail/CVE-2022-2295">https://nvd.nist.gov/vuln/detail/CVE-2022-2295</a></div>
+    </div>
+    <div id="ref-typesan" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[8] </div>
+      <div class="csl-right-inline">I.
+        Haller <em>et al.</em>, <em><span>TypeSan: Practical Type Confusion
+            Detection</span></em>. 2016. Available: <a
+          href="https://dl.acm.org/doi/abs/10.1145/2976749.2978405">https://dl.acm.org/doi/abs/10.1145/2976749.2978405</a>
+      </div>
+    </div>
+    <div id="ref-tcd" class="csl-entry" role="listitem">
+      <div class="csl-left-margin">[9] </div>
+      <div class="csl-right-inline">Changwei Zou Yulei Sui, H. Yan, and J. Yue,
+        <em><span class="nocase">TCD: Statically Detecting Type Confusion Errors
+            in C++ Programs</span></em>. 2019. Available: <a
+          href="https://ieeexplore.ieee.org/abstract/document/8987463/figures#figures">https://ieeexplore.ieee.org/abstract/document/8987463/figures#figures</a>
+      </div>
+    </div>
+  </div>

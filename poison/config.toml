@@ -10,6 +10,17 @@ customCSS = ["/custom.css"]
 # NOTE: If using Disqus as commenting engine, uncomment and configure this line
 # disqusShortname = "yourDisqusShortname"
 
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^npx$', '^postcss$', '^tailwindcss$', 'pandoc']
+    osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
+
 [params]
     brand = "Adrien's Dashbook"                      # name of your site - appears in the sidebar
     brand_image = "/images/adrienacco2.jpg"    # path to the image shown in the sidebar
@@ -17,6 +28,8 @@ customCSS = ["/custom.css"]
     dark_mode = true                      # optional - defaults to false
     favicon =  'https://github.com/abouquet27.png'       
     front_page_content = ["about", "posts"]
+    toc =true
+    math = true
 
     # path to favicon (defaults to favicon.png)
 
@@ -63,7 +76,7 @@ customCSS = ["/custom.css"]
     code_block_background_color = "#1b1838" # default is #0b0432
     content_bg_color = "#FAF9F6"            # default is #FAF9F6
     date_color = "#515151"                  # default is #515151
-    link_color = "#268BD2"                  # default is #268BD2
+    link_color = "#5e0ea5"                  # default is #5e0ea5
     list_color = "#5A5A5A"                  # default is #5A5A5A
     post_title_color = "#303030"            # default is #303030
     table_border_color = "#E5E5E5"          # default is #E5E5E5
@@ -99,3 +112,14 @@ customCSS = ["/custom.css"]
 [taxonomies]
     series = 'series'
     tags = 'tags'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
